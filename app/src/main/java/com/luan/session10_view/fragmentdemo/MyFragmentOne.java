@@ -13,6 +13,7 @@ import android.widget.Button;
 public class MyFragmentOne extends Fragment {
     public static MyFragmentOne newInstance(String value){
         MyFragmentOne myFragmentOne = new MyFragmentOne();
+        //day du lieu vao fragment tu activity
         Bundle bundle = new Bundle();
         bundle.putString("KEY",value);
         myFragmentOne.setArguments(bundle);
@@ -22,6 +23,7 @@ public class MyFragmentOne extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //lay du lieu ra
         Bundle bundle = getArguments();
         bundle.getString("KEY"); ///LUAN
         Log.e("NAME", bundle.getString("KEY"));
