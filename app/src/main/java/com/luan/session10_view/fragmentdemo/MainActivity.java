@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements MyListener {
     Button myButton;
@@ -40,6 +41,6 @@ public class MainActivity extends AppCompatActivity implements MyListener {
 
     @Override
     public void callAct(String hi) {
-        Log.e("Call",hi);
+        Toast.makeText(MainActivity.this,hi,Toast.LENGTH_SHORT).show();
     }
 }

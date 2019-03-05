@@ -13,6 +13,7 @@ import android.widget.Button;
 
 public class MyFragmentOne extends Fragment {
     MyListener myListener;
+    Button button;
 
     public static MyFragmentOne newInstance(String value){
         MyFragmentOne myFragmentOne = new MyFragmentOne();
@@ -35,7 +36,15 @@ public class MyFragmentOne extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.my_fragment_one,null,false);
+       View v = inflater.inflate(R.layout.my_fragment_one,null,false);
+        button = (Button) v.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myListener.callAct("Hello Activity");
+            }
+        });
+        return v;
     }
 
     public void hello(){
@@ -48,9 +57,4 @@ public class MyFragmentOne extends Fragment {
         myListener=(MyListener) context;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        myListener.callAct("Hello Activity");
-    }
 }
